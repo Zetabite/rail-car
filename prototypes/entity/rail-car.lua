@@ -41,7 +41,7 @@ function rail_car_reflection(scale)
 	{
 	  pictures =
 	  {
-		filename = "__rail-car__/graphics/entity/car/car-reflection.png",
+		filename = "__rail-car__/graphics/entity/rail-car/car-reflection.png",
 		priority = "extra-high",
 		width = 20,
 		height = 24,
@@ -196,19 +196,19 @@ data:extend({
 				speed = {-0.03, 0},
 				speed_multiplier = 0.75,
 				speed_multiplier_deviation = 1.1,
-				offset_deviation = {{-0.75, -2.7}, {-0.3, 2.7}}
+				offset_deviation = {{-0.75, -1.5}, {-0.3, 1.5}}
 			},
 			-- right side
 			{
-			type = "create-trivial-smoke",
-			repeat_count = 125,
-			smoke_name = "smoke-train-stop",
-			initial_height = 0,
-			-- smoke goes to the right
-			speed = {0.03, 0},
-			speed_multiplier = 0.75,
-			speed_multiplier_deviation = 1.1,
-			offset_deviation = {{0.3, -2.7}, {0.75, 2.7}}
+				type = "create-trivial-smoke",
+				repeat_count = 125,
+				smoke_name = "smoke-train-stop",
+				initial_height = 0,
+				-- smoke goes to the right
+				speed = {0.03, 0},
+				speed_multiplier = 0.75,
+				speed_multiplier_deviation = 1.1,
+				offset_deviation = {{0.3, -1.5}, {0.75, 1.5}}
 			},
 			{
 				type = "play-sound",
