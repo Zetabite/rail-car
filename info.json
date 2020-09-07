@@ -1,0 +1,12 @@
+{
+    "name": "rail-car",
+    "version": "0.1.0",
+    "title": "Rail Car",
+    "author": "Zetabite",
+    "factorio_version": "0.18",
+    "dependencies": [
+        "base >= 0.18"
+    ],
+    "description": "Just the car on rails, totally broken, probably unbalanced and more than stupid."
+  }
+  
