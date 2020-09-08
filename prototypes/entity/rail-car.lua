@@ -2,65 +2,13 @@ local hit_effects = require ("__base__/prototypes/entity/demo-hit-effects")
 local sounds = require("__base__/prototypes/entity/demo-sounds")
 local car = data.raw["car"]["car"]
 
-function drive_over_tie()
-	return
-	{
-	  type = "play-sound",
-	  sound =
-	  {
-		{
-		  filename = "__base__/sound/train-tie-1.ogg",
-		  volume = 0.4
-		},
-		{
-		  filename = "__base__/sound/train-tie-2.ogg",
-		  volume = 0.4
-		},
-		{
-		  filename = "__base__/sound/train-tie-3.ogg",
-		  volume = 0.4
-		},
-		{
-		  filename = "__base__/sound/train-tie-4.ogg",
-		  volume = 0.4
-		},
-		{
-		  filename = "__base__/sound/train-tie-5.ogg",
-		  volume = 0.4
-		},
-		{
-		  filename = "__base__/sound/train-tie-6.ogg",
-		  volume = 0.4
-		}
-	  }
-	}
-  end
-
-function rail_car_reflection(scale)
-	return
-	{
-	  pictures =
-	  {
-		filename = "__rail-car__/graphics/entity/rail-car/car-reflection.png",
-		priority = "extra-high",
-		width = 20,
-		height = 24,
-		shift = util.by_pixel(0, 35),
-		variation_count = 1,
-		scale = 5 * scale,
-	  },
-	  rotate = true,
-	  orientation_to_variation = false
-	}
-  end
-
 data:extend({
 	{
 		type = "locomotive",
 		name = "rail-car",
 		icon = "__base__/graphics/icons/car.png",
     	icon_size = 64,
-		flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
+		flags = car.flags,
 		minable = {mining_time = 0.5, result = "rail-car"},
 		mined_sound = car.mined_sound,
 		max_health = car.max_health,
@@ -69,7 +17,7 @@ data:extend({
 		alert_icon_shift = car.alert_icon_shift,
 		energy_per_hit_point = car.energy_per_hit_point,
 		resistances = car.resistances,
-		collision_box = {{-0.7, -1.5}, {0.7, 1.5}},
+		collision_box = {{-0.6, -1.5}, {0.6, 1.5}},
     	selection_box = {{-1, -1.5}, {1, 1.5}},
 		damaged_trigger_effect = hit_effects.entity(),
 		braking_force = 10,
@@ -83,7 +31,7 @@ data:extend({
 		vertical_selection_shift = -0.5,
 		air_resistance = 0.0075, -- this is a percentage of current speed that will be subtracted
 		connection_distance = 2,
-		joint_distance = 1,
+		joint_distance = 1.5,
 		color = {r = 0.92, g = 0.07, b = 0, a = 0.5},
 		pictures = {
 			layers = {
@@ -91,32 +39,32 @@ data:extend({
 					priority = "low",
 					width = 100,
 					height = 86,
-					shift = {0, -0.1875},
-					direction_count = 128,
+					--shift = {0, -0.1875},
+					direction_count = 64,
 					filenames = {
-						"__rail-car__/graphics/entity/rail-car/car-1.png",
-						"__rail-car__/graphics/entity/rail-car/car-2.png"
+						"__rail-car__/graphics/entity/rail-car/rail-car-1.png",
+						"__rail-car__/graphics/entity/rail-car/rail-car-2.png"
 					},
-					line_length = 2,
+					line_length = 1,
 					lines_per_file = 32,
 					hr_version = {
 						priority = "low",
 						width = 201,
             			height = 172,
-						direction_count = 128,
+						direction_count = 64,
 						filenames = {
-							"__rail-car__/graphics/entity/rail-car/hr-car-1.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-2.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-3.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-4.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-5.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-6.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-7.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-8.png"
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-1.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-2.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-3.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-4.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-5.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-6.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-7.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-8.png"
 						},
-						line_length = 2,
+						line_length = 1,
 						lines_per_file = 8,
-						shift = util.by_pixel(0+2, -11.5+8.5),
+						--shift = util.by_pixel(0+2, -11.5+8.5),
 						scale = 0.5
 					}
 				},
@@ -125,31 +73,30 @@ data:extend({
 					flags = { "mask" },
 					width = 99,
 					height = 73,
-					direction_count = 128,
-					allow_low_quality_rotation = true,
+					direction_count = 64,
 					filenames = {
-						"__rail-car__/graphics/entity/rail-car/car-mask-1.png",
-						"__rail-car__/graphics/entity/rail-car/car-mask-2.png"
+						"__rail-car__/graphics/entity/rail-car/rail-car-mask-1.png",
+						"__rail-car__/graphics/entity/rail-car/rail-car-mask-2.png"
 					},
-					line_length = 2,
+					line_length = 1,
 					lines_per_file = 32,
-					shift = {0, -0.171875},
+					--shift = {0, -0.171875},
 					apply_runtime_tint = true,
 					hr_version = {
 						priority = "low",
 						flags = { "mask" },
 						width = 199,
             			height = 147,
-						direction_count = 128,
+						direction_count = 64,
 						filenames = {
-							"__rail-car__/graphics/entity/rail-car/hr-car-mask-1.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-mask-2.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-mask-3.png",
-							"__rail-car__/graphics/entity/rail-car/hr-car-mask-4.png"
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-mask-1.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-mask-2.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-mask-3.png",
+							"__rail-car__/graphics/entity/rail-car/hr-rail-car-mask-4.png"
 						},
-						line_length = 2,
+						line_length = 1,
 						lines_per_file = 16,
-						shift = util.by_pixel(0+2, -11+8.5),
+						--shift = util.by_pixel(0+2, -11+8.5),
 						apply_runtime_tint = true,
 						scale = 0.5
 					}
@@ -159,15 +106,15 @@ data:extend({
 					flags = { "shadow" },
 					width = 114,
           			height = 76,
-					direction_count = 128,
+					direction_count = 64,
 					draw_as_shadow = true,
 					filenames = {
-						"__rail-car__/graphics/entity/rail-car/car-shadow-1.png",
-						"__rail-car__/graphics/entity/rail-car/car-shadow-2.png",
-						"__rail-car__/graphics/entity/rail-car/car-shadow-3.png",
-						"__rail-car__/graphics/entity/rail-car/car-shadow-4.png"
+						"__rail-car__/graphics/entity/rail-car/rail-car-shadow-1.png",
+						"__rail-car__/graphics/entity/rail-car/rail-car-shadow-2.png",
+						"__rail-car__/graphics/entity/rail-car/rail-car-shadow-3.png",
+						"__rail-car__/graphics/entity/rail-car/rail-car-shadow-4.png"
 					},
-					line_length = 2,
+					line_length = 1,
 					lines_per_file = 16,
 					shift = {0.28125, 0.25},
 				}
@@ -226,6 +173,6 @@ data:extend({
 		close_sound = car.close_sound,
 		sound_minimum_speed = 0.5,
 		sound_scaling_ratio = 0.35,
-		water_reflection = rail_car_reflection(1),
+		water_reflection = car.water_reflection
 	}
 })
