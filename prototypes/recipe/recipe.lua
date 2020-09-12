@@ -14,7 +14,7 @@ data:extend({
 
 	{
 		type = "recipe",
-		name = "armoured-draisine-turret",
+		name = "armoured-draisine-engine",
 		--enabled = false,
 		energy_required = 2,
 		ingredients = {
@@ -23,6 +23,6 @@ data:extend({
 			{"iron-gear-wheel", 15},
 			{"advanced-circuit", 10}
 		},
-		result = "armoured-draisine-turret"
+		result = "armoured-draisine-engine"
 	}
 })
