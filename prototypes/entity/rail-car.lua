@@ -26,7 +26,7 @@ data:extend({
 		front_light = car.light,
 		weight = car.weight + 200,
 		max_speed = 1,
-		max_power = "600kW",
+		max_power = "150kW",
 		reversing_power_modifier = 0.6,
 		vertical_selection_shift = -0.5,
 		air_resistance = 0.0075, -- this is a percentage of current speed that will be subtracted
